@@ -1,0 +1,34 @@
+
+<nav class="navbar">
+
+    <div class="container">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <!--(click)="exibindoMenu = !exibindoMenu"-->
+          <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
+        </div>
+      </div>
+    </div>
+
+  <p-sidebar [(visible)]="exibindoMenu" [baseZIndex]="1500">
+    <h3 >{{usuarioLogado}}</h3>
+    
+    
+    <p-panelMenu [model]="itemsMenu" [style]="{'padding':'0rem'}"></p-panelMenu>
+    <!-- <p-panelMenu [model]="usuarioMenu" ></p-panelMenu>
+    <ul >
+      <li class="navbar-usuario">{{usuarioLogado}}</li>
+      <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_CADASTRAR_CASAMENTO')" ><a routerLink="/usuario/pesquisar" >Controle de Usuários</a></li>
+      <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_CASAMENTO')" ><a routerLink="/casamentos" >Casamentos</a></li>
+      <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_BATISMO')" ><a routerLink="/batismos/novo" >Batismos</a></li>
+      <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>
+    </ul>
+
+    -->
+  </p-sidebar>
+  
+    
+    
+  </nav>
+
+ 

@@ -1,0 +1,50 @@
+<p-toast position="bottom-left" key="tl"></p-toast>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text" #confirmacao>
+
+</p-confirmDialog>
+
+<div class="p-grid">
+    <div class="p-grid-12 box">
+      <p-table [value]="registroCasamento" styleClass="p-datatable-sm"
+      [scrollable]="true"  scrollHeight="500px" scrollDirection="both" [responsive]="true" 
+      emptyMessage="Nenhum registro de Casamento encontrado." 
+      [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true" 
+      [totalRecords]="totalElementos"  (onLazyLoad)="aoMudarPagina($event)"
+      #tabela selectionMode="single" >
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width:150px" class="col-data-header">Data</th>
+            <th style="width:400px">Noivo</th>
+            <th style="width:400px">Noiva</th>
+            <th style="width:400px">Pais do Noivo</th>
+            <th style="width:400px">Pais da Noiva</th>
+            <th style="width:400px">Testemunhas</th>
+            <th style="width:500px">Informações</th>
+            <th style="width:150px">Local</th>
+            <th style="width:100px" *ngIf="getAuth().temPermissao('ROLE_REMOVER_CASAMENTO') ">Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-casamento >
+          <tr>
+            <td style="width:150px">{{ casamento.dataCasamento | date: 'dd/MM/yyyy'}}</td>
+            <td style="width:400px">{{ casamento.nomeNoivo }}</td>
+            <td style="width:400px">{{ casamento.nomeNoiva }}</td>
+            <td style="width:400px">{{ casamento.paisNoiva }}</td>
+            <td style="width:400px">{{ casamento.paisNoivo }}</td>
+            <td style="width:400px">{{ casamento.testemunhas }}</td>
+            <td style="width:500px">{{ casamento.observacao }}</td>
+            <td style="width:150px">{{ casamento.localizacao.cidade }}</td>      
+            <td class="col-acoes" style="width:100px"  *ngIf="getAuth().temPermissao('ROLE_REMOVER_CASAMENTO') ">
+              <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+              [routerLink]="['/casamentos', casamento.codigo]"></a>
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" (click)="confirmarExclusao(casamento)" 
+              *ngIf="getAuth().temPermissao('ROLE_REMOVER_CASAMENTO')"
+              pButton pRipple ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>

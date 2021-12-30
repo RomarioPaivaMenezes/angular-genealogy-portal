@@ -1,0 +1,106 @@
+<p-toast></p-toast>
+<div class="container">
+  <div class="p-panel-app">
+      <div class="p-grid box shadow-5 m-1" style="padding: 20px;">
+
+
+    <div class="">
+
+            <form autocomplete="off" (ngSubmit)="pesquisar()">
+
+                <div class="p-col-12">
+                  <h1>Pesquisar Casamento</h1>
+                </div>
+            
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+                  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+
+                <div class="formgrid grid p-inputtext-sm">
+
+                <div class="field col-12 md:col-6" style="padding: 10px;">
+                  <span class="p-float-label">
+                    <input pInputText class="inputfield w-full" id="float-input" type="text" name="nomeNoivo" [(ngModel)]="filtro.nomeNoivo">
+                    <label for="float-input">Nome do Noivo</label>
+                  </span>
+                </div>
+
+                <div class="field col-12 md:col-6" style="padding: 10px;">
+                  <span class="p-float-label">
+                    <input pInputText pInputText class="inputfield w-full" id="pNoivo" type="text" name="paisNoivo" [(ngModel)]="filtro.paisNoivo">
+                    <label for="pNoivo" >Pais do Noivo</label>    
+                </span>
+                </div>
+            
+                <div class="field col-12 md:col-6" style="padding: 10px;">
+                  <span class="p-float-label">
+                    <input pInputText class="inputfield w-full" id="nomeNoiva" type="text" name="nomeNoiva" [(ngModel)]="filtro.nomeNoiva">
+                    <label for="nomeNoiva">Nome do Noiva</label>
+                  </span>
+                </div>
+
+                <div class="field col-12 md:col-6" style="padding: 10px;">
+                  <span class="p-float-label">
+                    <input pInputText pInputText class="inputfield w-full" id="pNoiva" type="text" name="paisNoiva" [(ngModel)]="filtro.paisNoiva">
+                    <label for="pNoiva">Pais da Noiva</label>
+                  </span>
+                </div>
+
+                <div class="field p-col-12 md:col-6" style="padding: 10px;">
+                  <span class="p-float-label">
+                    <input pInputText type="text" id="testemunhas" class="inputfield w-full" name="testemunhas" [(ngModel)]="filtro.testemunhas">
+                    <label for="testemunhas">Testemunhas</label>
+                  </span>
+                </div>
+
+                <div class="field p-col-12 md:col-6" style="padding: 10px;">
+                
+                  <p-dropdown [options]="locais" placeholder="Localizacao" class="inputfield w-full" [showClear]="true"
+                  name="local" [(ngModel)]="local" [required]="false"></p-dropdown>
+                  
+                
+                </div>
+              
+
+              </div>
+
+              
+              <label style="display: block">Período</label>
+                  <div class="formgrid grid p-inputtext-sm">
+                  
+                      <div class="field p-col-12 md:col-2" style="padding: 15px;">
+                        <span class="p-float-label">
+                          <p-calendar dateFormat="dd/mm/yy" 
+                          name="dataCasamentoDe" id="de" [(ngModel)]="filtro.dataCasamentoDe"></p-calendar>
+                          <label for="de">Data Inicial</label>
+                        </span>
+                      </div>   
+                      <div class="field p-col-12 md:col-2" style="padding: 15px;">
+                        <span class="p-float-label">
+                            <p-calendar dateFormat="dd/mm/yy" id="ate" 
+                            name="dataCasamentoAte" [(ngModel)]="filtro.dataCasamentoAte"></p-calendar>
+                            <label for="ate">Data Final</label>
+                          </span>
+                    </div>
+                  </div>
+            
+
+                <div class="p-col-12">
+                  <button pButton type="submit" label="Pesquisar"></button>
+                </div>
+              
+            <br/>
+
+          <!--  <div class="p-col-12">
+              <button pButton type="submit" label="Cadastrar Pessoa"></button>
+            </div> 
+          -->
+
+          <app-pesquisa-grid [registroCasamento]=registroCasamento  [filtro]=filtro [totalElementos]=totalElementos ></app-pesquisa-grid>
+          </form>
+
+
+    </div>
+    
+  </div>
+</div>
+</div>

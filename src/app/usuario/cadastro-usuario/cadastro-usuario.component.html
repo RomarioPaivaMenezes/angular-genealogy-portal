@@ -1,0 +1,112 @@
+<p-toast position="bottom-left"></p-toast>
+<div class="container">
+    <div class="card-container" style="padding: 10px 0 10px;">
+        <div class="p-grid box shadow-5 m-1" style="padding: 20px;">
+            
+            <div  >
+                    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)"> 
+                        <div>
+                            <h1>  {{editando ? 'Edição de': 'Novo'}} Usuário</h1>
+                        </div>
+                                <div class="formgrid grid">
+                                
+                                        <div class="field col-12 md:col-6">
+                                            <label>Nome do Usuário</label>
+                                            <input  type="text" pInputText class="inputfield w-full"
+                                            name="nome" ngModel #nome="ngModel" [required]="true" minlength="5"
+                                            [(ngModel)]="usuario.nome"> 
+
+                                        <app-message [control]="nome" error="required" 
+                                            text="Informe o nome do Usuário." ></app-message>
+
+                                            <app-message [control]="nome" error="minlength" 
+                                            text="Informe o nome com mínimo de {{nome.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label>Email</label>
+                                            <input type="text" pInputText class="inputfield w-full"
+                                            name="email" ngModel #email="ngModel" [required]="true" minlength="5"
+                                            [(ngModel)]="usuario.email"> 
+
+                                        <app-message [control]="email" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="email" error="minlength" 
+                                            text="Informe o nome com mínimo de {{email.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>  
+                                        
+                                        </div> 
+
+                                        <div class="field col-6">
+                                            <label>Senha</label>
+                                            <input type="text" pInputText class="inputfield w-full"
+                                            name="senha" ngModel #senha="ngModel" [required]="false" minlength="4"
+                                            [(ngModel)]="usuario.senha"> 
+
+                                        <app-message [control]="senha" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="senha" error="minlength" 
+                                        text="Informe o nome com mínimo de {{senha.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>  
+                                        
+                                        </div>
+
+                                        <div class="field col-6">
+                                            <label>Senha</label>
+                                            <input type="text" pInputText class="inputfield w-full"
+                                            name="confirmar" ngModel #confirmar="ngModel" [required]="false" minlength="4"
+                                            [(ngModel)]="senhaConfirmar"> 
+
+                                        <app-message [control]="confirmar" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="confirmar" error="minlength" 
+                                        text="Informe o nome com mínimo de {{confirmar.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>  
+                                        
+                                        </div>
+
+                                    <div class="field col-12">
+                                            <div>
+                                                <h1>Permissões</h1>
+                                            </div>
+
+                                            <p-pickList [source]="permissoes" [target]="permissoesDoUsuario" sourceHeader="Permissões Disponíveis" targetHeader="Permissões Selecionadas" [dragdrop]="true"
+                                                        [responsive]="true" [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}" filterBy="descricao"
+                                                        sourceFilterPlaceholder="Pesquisar por Nome" targetFilterPlaceholder="Pesquisar por Nome">
+                                                        <ng-template let-permissao pTemplate="item">
+                                                            <div class="product-item">
+                                                                <div class="image-container">
+                                                                       
+                                                                </div>
+                                                                <div class="product-list-detail">
+                                                                    <h5 class="p-mb-2">{{permissao.descricao}}</h5>
+                                                                </div>
+                                                                <div class="product-list-action">
+                                                
+                                                                    <span [class]="'product-badge status-' + permissao.descricao.toLowerCase()"></span>
+                                                                </div>
+                                                            </div>
+                                                        </ng-template>
+                                                    </p-pickList>
+                                
+                                            </div>      
+
+
+                                <div class="field col-6">
+                                    <button pButton type="submit" label="Salvar" [disabled]=f.invalid action></button>
+                                    
+                                    <button pButton type="button" label="Novo" class="p-button-info" 
+                                    (click)="novo(f)"></button>
+                                    <a routerLink="/usuario/pesquisar">voltar para pesquisa</a>
+                                </div>
+                    
+
+                   
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>                
+

@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="card-container" style="padding: 10px 0 10px;">
+        <div class="p-grid box shadow-5 m-1" style="padding: 20px;">
+            
+            <div  >
+                    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)"> 
+                        <div>
+                            <h1>  {{editando ? 'Edição de': 'Novo'}} Casamento</h1>
+                        </div>
+                                <div class="formgrid grid">
+                                
+                                        <div class="field col-12 md:col-6">
+                                            <label>Nome do Noivo </label>
+                                            <input  type="text" pInputText class="inputfield w-full"
+                                            name="nomeNoivo" ngModel #nomeNoivo="ngModel" [required]="true" minlength="5"
+                                            [(ngModel)]="casamento.nomeNoivo"> 
+
+                                        <app-message [control]="nomeNoivo" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="nomeNoivo" error="minlength" 
+                                            text="Informe o nome com mínimo de {{nomeNoivo.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label>Nome da Noiva </label>
+                                            <input type="text" pInputText class="inputfield w-full"
+                                            name="nomeNoiva" ngModel #nomeNoiva="ngModel" [required]="true" minlength="5"
+                                            [(ngModel)]="casamento.nomeNoiva"> 
+
+                                        <app-message [control]="nomeNoiva" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="nomeNoiva" error="minlength" 
+                                            text="Informe o nome com mínimo de {{nomeNoiva.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>  
+                                        
+                                        </div> 
+
+                                        <div class="field col-6">
+                                            <label>Pais do Noivo </label>
+                                            <input type="text" pInputText class="inputfield w-full"
+                                            name="paisNoivo" ngModel #paisNoivo="ngModel" [required]="true" minlength="4"
+                                            [(ngModel)]="casamento.paisNoivo"> 
+
+                                        <app-message [control]="paisNoivo" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="paisNoivo" error="minlength" 
+                                        text="Informe o nome com mínimo de {{paisNoivo.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>  
+                                        
+                                        </div>
+                    
+                                        <div class="field col-6 sm:col">
+                                            <label for="lastname">Pais da Noiva </label>
+                                            <input id="lastname" type="text" pInputText class="inputfield w-full"
+                                            name="paisNoiva" ngModel #paisNoiva="ngModel" [required]="true" minlength="4"
+                                            [(ngModel)]="casamento.paisNoiva"> 
+
+                                            <app-message [control]="paisNoiva" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="paisNoiva" error="minlength" 
+                                            text="Informe o nome com mínimo de {{paisNoiva.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>  
+                                            
+                                        </div> 
+
+                                        <div class="field col-6 p-fluid">
+                                            <label for="lastname">Testemunhas </label>
+                                            <input id="lastname" type="text" pInputText class="inputfield w-full"
+                                            name="testemunhas" ngModel #testemunhas="ngModel" [required]="true" minlength="4"
+                                            [(ngModel)]="casamento.testemunhas"> 
+
+                                            <app-message [control]="testemunhas" error="required" 
+                                            text="Informe o nome igualmente ao registro do livro." ></app-message>
+
+                                            <app-message [control]="testemunhas" error="minlength" 
+                                            text="Informe o nome com mínimo de {{testemunhas.errors?.['minlength']?.requiredLength}} caracteres." ></app-message>  
+                                            
+                                        </div> 
+                    
+                                        <div class="field col-3 p-fluid">
+                                            <label>Local </label>
+                                            <p-dropdown [options]="locais" placeholder="Seleciona o local" [filter]="true"
+                                            name="local" ngModel #local="ngModel" [required]="true" 
+                                            [(ngModel)]="casamento.localizacao.codigo"></p-dropdown>
+                                        
+                                            <app-message [control]="local" error="required" 
+                                            text="Informe o local que ocorreu o casamento." ></app-message>
+                                            
+                                        </div> 
+                    
+                                        <div class="field col-3 p-fluid">
+                                            <label>Data </label>
+                                            <p-calendar [showIcon]="true" [required]="true" ngModel #dataCasamento="ngModel" 
+                                            name="dataCasamento"  [(ngModel)]="casamento.dataCasamento"
+                                            [readonlyInput]="false" dateFormat="dd/mm/yy" inputId="icon"></p-calendar>
+                    
+                                            <app-message [control]="dataCasamento" error="required" 
+                                            text="Informe uma data para o casamento." ></app-message>
+                                            
+                                        </div> 
+                    
+                                        <div class="field col-12 p-fluid">
+                                            <label >Observações</label>
+                                            <textarea pInputTextarea rows="3" 
+                                            name="observacao" [(ngModel)]="casamento.observacao"></textarea>
+                                        </div>
+                                </div>
+
+                                <div>
+                                    <button pButton type="submit" label="Salvar" [disabled]=f.invalid action></button>
+                                    
+                                    <button pButton type="button" label="Novo" class="p-button-info" 
+                                    (click)="novo(f)"></button>
+                                    <a routerLink="/casamentos">voltar para pesquisa</a>
+                                </div>
+
+                    </form>
+                </div>
+
+
+        </div>
+    </div>
+</div>                

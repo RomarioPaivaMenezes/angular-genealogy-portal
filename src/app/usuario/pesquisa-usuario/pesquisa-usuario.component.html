@@ -1,0 +1,74 @@
+<p-toast position="bottom-left" key="tl"></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text" #confirmacao>
+</p-confirmDialog>
+
+<div class="container">
+    <div class="card-container" style="padding: 10px 0 10px;">
+        <div class="p-grid box shadow-5 m-1" style="padding: 20px;">
+
+                        <div >
+                            <p-panel  [toggleable]="false"><ng-template pTemplate="icons"></ng-template>
+                                        
+                                            <form autocomplete="off" (ngSubmit)="pesquisa()">
+                                
+                                                <div class="p-col-12">
+                                                    <h1>Pesquisar Usuarios</h1>
+                                                </div>
+                                            
+                                                <div class="formgrid grid p-inputtext-sm">
+                                
+                                                    <div class="field col-12 md:col-6" style="padding: 10px;">
+                                                        <span class="p-float-label">
+                                                        <input pInputText class="inputfield w-full" id="float-input" type="text" name="nome" [(ngModel)]="filtro.nome">
+                                                        <label for="float-input">Nome do Usuario</label>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="field col-12 md:col-6" style="padding: 10px;">
+                                                        <span class="p-float-label">
+                                                        <input pInputText class="inputfield w-full" id="float-input" type="text" name="email" [(ngModel)]="filtro.email">
+                                                        <label for="float-input">Email</label>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="field col-12">
+                                                        <button pButton type="submit" label="Pesquisar"></button>
+                                                    </div>
+
+
+                                                    <div class="p-grid field col-12">
+                                                        <div class="p-grid-12 box">
+                                                            <p-table [value]="registrosUsuario"  [scrollable]="true"  
+                                                            styleClass="p-datatable-gridlines" responsiveLayout="scroll"
+                                                            scrollHeight="400px"  [responsive]="true" emptyMessage="Nenhum registro de Usuário encontrado." 
+                                                            [paginator]="true" [rows]="filtro.itensPorPagina" [lazy]="true" [totalRecords]="totalElementos"  (onLazyLoad)="aoMudarPagina($event)"
+                                                            #tabela selectionMode="single" >
+
+                                                                    <ng-template pTemplate="header">
+                                                                        <tr>
+                                                                            <th>Nome</th>
+                                                                            <th>Email</th>
+                                                                            <th>Ações</th>
+                                                                        </tr>
+                                                                    </ng-template>
+                                                                    <ng-template pTemplate="body" let-usuario >
+                                                                        <tr>
+                                                                                <td>{{ usuario.nome }}</td>
+                                                                                <td>{{ usuario.email }}</td>
+                                                                                <td class="col-acoes" *ngIf="getAuth().temPermissao('ROLE_REMOVER_CASAMENTO') ">
+                                                                                <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" [routerLink]="['/usuario', usuario.codigo]"></a>
+                                                                                    
+                                                                                <button pButton icon="pi pi-trash" pTooltip="Excluir" (click)="confirmarExclusao(usuario)" 
+                                                                                *ngIf="getAuth().temPermissao('ROLE_REMOVER_CASAMENTO')" pButton pRipple ></button></td>
+                                                                        </tr>
+                                                                    </ng-template>
+                                                                </p-table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>         
+                            </p-panel>                                 
+                        </div>
+        </div>          
+    </div>
+</div>
