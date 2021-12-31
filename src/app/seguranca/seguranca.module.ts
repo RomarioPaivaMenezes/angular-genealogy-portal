@@ -40,7 +40,7 @@ export function tokenGetter(): string {
       config: {
         tokenGetter,
         allowedDomains: [environment.tokenAllowedDomains.toString()],
-        disallowedRoutes: ['https://api-genealogia.herokuapp.com/oauth/token/']
+        disallowedRoutes: ['/oauth/token/']
       }       
     }),
 
