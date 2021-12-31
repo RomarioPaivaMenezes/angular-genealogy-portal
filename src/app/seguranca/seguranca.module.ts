@@ -40,7 +40,7 @@ export function tokenGetter(): string {
       config: {
         tokenGetter,
         allowedDomains: [environment.tokenAllowedDomains.toString()],
-        disallowedRoutes: [environment.tokenDisallowedRoutes+'/oauth/token/']
+        disallowedRoutes: [environment.tokenDisallowedRoutes.toString()]
       }       
     }),
 
