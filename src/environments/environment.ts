@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'https://api-genealogia.herokuapp.com',
-  tokenAllowedDomains: [ /agile-fjord-35937.herokuapp.com/ ],
-  tokenDisallowedRoutes: [/\/oauth\/token/]
+  tokenAllowedDomains: [ new RegExp('agile-fjord-35937.herokuapp.com') ],
+  tokenDisallowedRoutes: [ new RegExp('\/oauth\/token')]
 }
 /*
  * For easier debugging in development mode, you can import the following file
