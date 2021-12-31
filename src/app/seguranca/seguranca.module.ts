@@ -39,7 +39,7 @@ export function tokenGetter(): string {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        allowedDomains: [environment.tokenAllowedDomains.toString()],
+        allowedDomains: ['api-genealogia.herokuapp.com'],
         disallowedRoutes: ['https://api-genealogia.herokuapp.com/oauth/token/']
       }       
     }),
