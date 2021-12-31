@@ -39,8 +39,8 @@ export function tokenGetter(): string {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        allowedDomains: [environment.apiUrl],
-        disallowedRoutes: [environment.apiUrl+'/oauth/token']
+        allowedDomains: [environment.tokenAllowedDomains.toString()],
+        disallowedRoutes: [environment.tokenDisallowedRoutes.toString()]
       }       
     }),
 
