@@ -11,7 +11,6 @@ import { DropdownModule} from 'primeng/dropdown';
 import { InputTextareaModule} from 'primeng/inputtextarea';
 import { InputTextModule} from 'primeng/inputtext';
 import { ButtonModule} from 'primeng/button';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
@@ -41,7 +40,7 @@ import { CasamentoRoutingModule } from './casamento-routing.module';
     TooltipModule,
     TableModule,
     ButtonModule,
-    BrowserAnimationsModule,
+
     ScrollingModule,
     ConfirmDialogModule,
     PanelModule,

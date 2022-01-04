@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api-genealogia.herokuapp.com',
-  tokenAllowedDomains: [ /localhost:8080/ ],
-  tokenDisallowedRoutes: [/\/oauth\/token/]
+  apiUrl: 'http://localhost:8080',
+  tokenAllowedDomains: new String('localhost:8080'),
+  tokenDisallowedRoutes: new String('/oauth/token/')
 }
 /*
  * For easier debugging in development mode, you can import the following file

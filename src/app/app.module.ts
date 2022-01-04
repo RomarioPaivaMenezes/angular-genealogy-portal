@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 
 import { DatePipe, registerLocaleData } from '@angular/common';
 
-import { CasamentosModule } from './casamentos/casamentos.module';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { CoreModule } from './core-module/core.module';
 import { CasamentoService } from './casamentos/casamento.service';
@@ -16,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
-import { Calendar, CalendarModule } from 'primeng/calendar';
 import { UsuarioModule } from './usuario/usuario.module';
 
 
@@ -33,14 +31,14 @@ import { UsuarioModule } from './usuario/usuario.module';
     HttpClientModule,    
 
     CoreModule,
-    CasamentosModule,
     PessoasModule,
     SegurancaModule,
     UsuarioModule,
 
     AppRoutingModule
  ],  
-  providers: [CasamentoService, 
+  providers: [
+    CasamentoService, 
     DatePipe,
     ErrorHandlerService,
     

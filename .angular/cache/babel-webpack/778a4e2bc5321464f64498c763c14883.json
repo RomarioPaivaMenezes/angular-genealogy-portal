@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: true,\n  tokenAllowedDomains: [/algamoney-api.herokuapp.com/],\n  tokenDisallowedRoutes: [/\\/oauth\\/token/]\n};","map":null,"metadata":{},"sourceType":"module"}

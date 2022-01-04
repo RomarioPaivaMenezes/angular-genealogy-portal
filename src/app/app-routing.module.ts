@@ -6,6 +6,10 @@ import { PaginaNaoEncontradaComponent } from './core-module/pagina-nao-encontrad
 
 const routes: Routes = [
   /* {path: '', redirectTo: 'casamentos', pathMatch: 'prefix'},*/
+  {
+    path: 'casamentos', 
+    loadChildren: () => import('../app/casamentos/casamentos.module').then(m => m.CasamentosModule) 
+   },
    {
      path: '', 
      redirectTo: 'casamentos', 

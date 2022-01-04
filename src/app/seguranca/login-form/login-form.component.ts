@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core-module/error-handler.service';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 
 

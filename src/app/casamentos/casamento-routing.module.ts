@@ -9,19 +9,19 @@ const routes: Routes = [
   /* {path: '', redirectTo: 'casamentos', pathMatch: 'prefix'},*/
   
    {
-     path: 'casamentos', 
+     path: '', 
      component: CasamentoPesquisaComponent,
      canActivate: [AuthGuard],
      data: {roles: ['ROLE_PESQUISAR_CASAMENTO']}
     },
    {
-     path: 'casamentos/novo', 
+     path: 'novo', 
      component: CadastroCasamentoComponent,
      canActivate: [AuthGuard],
      data: {roles: ['ROLE_CADASTRAR_CASAMENTO'] }
     },
    {
-     path: 'casamentos/:codigo', 
+     path: ':codigo', 
      component: CadastroCasamentoComponent, 
      canActivate: [AuthGuard],
      data: {roles: ['ROLE_CADASTRAR_CASAMENTO']}

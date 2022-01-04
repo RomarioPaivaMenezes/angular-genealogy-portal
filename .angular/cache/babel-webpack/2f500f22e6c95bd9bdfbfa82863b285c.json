@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Localizacao {}\nexport class Casamento {\n  constructor() {\n    this.localizacao = new Localizacao();\n  }\n\n}\nexport class Permissao {}\nexport class Usuario {\n  constructor() {\n    this.permissoes = [];\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
