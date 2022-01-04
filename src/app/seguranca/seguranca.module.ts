@@ -41,7 +41,7 @@ export function tokenGetter(): string {
         tokenGetter,
         allowedDomains: [environment.tokenAllowedDomains.toString()],
         disallowedRoutes: [environment.apiUrl.concat(environment.tokenDisallowedRoutes.toString())]
-      }       
+      }
     }),
 
   ],
